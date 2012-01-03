@@ -1,9 +1,10 @@
 $(function () {
-        $("#notes").html(get('notes', ''));
-        
-        $("#notes").keyup(function() {
-            set('notes', $("#notes").html());
-        });
+    setHeight(get('height', '2'));
+    $("#notes").html(get('notes', ''));
+    
+    $("#notes").keyup(function() {
+        set('notes', $("#notes").html());
+    });
 });
 
 /**

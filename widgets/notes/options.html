@@ -1,13 +1,11 @@
 <script type="text/javascript" src="jquery.min.js"></script>
 <script>
 $(function () {
-    $('#news_numArticles').val(get("numArticles", "7"));
-    $('#feeds').val(get('feeds', "http://news.google.com/news?ned=us&topic=h&output=rss"));
+    $('#height').val(get("height", "2"));
 });
 
 function saveSettings() {
-    set('numArticles', $('#news_numArticles').val());
-    set('feeds', $('#feeds').val());
+    set('height', $('#height').val());
     alert('Settings saved!');
 }
 
@@ -73,10 +71,12 @@ span.help {
     color:#999;
 }
 </style>
-<label for="feeds">Feeds <span class="help">One per line</span></label>
-<textarea name="feeds" id="feeds" rows="5"></textarea>
+<label for="height">Widget Height</label>
+<select id="height">
+    <option value="1">1 Block</option>
+    <option value="2">2 Blocks</option>
+    <option value="3">3 Blocks</option>
+</select>
 
-<label for="news_numArticles">Number of articles <span class="help">(per feed)</span></label>
-<input type="text" name="news_numArticles" id="news_numArticles" />
 
 <button onclick="saveSettings();">Save</button>
