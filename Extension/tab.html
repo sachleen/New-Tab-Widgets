@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Tab</title>
+    <script type="text/javascript" src="scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.tmpl.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery-ui-1.8.16.custom.min.js"></script>
+    <script type="text/javascript" src="scripts/common.js"></script>
+    <script type="text/javascript" src="scripts/newtab.js"></script>
+    <link rel="stylesheet" href="styles/fluid.gs.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="styles/common.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="styles/newtab.css" type="text/css" media="screen">
+</head>
+<body>
+    <div class="nine_column section">
+        <div class="three column" id="col_0">
+        </div>
+        <div class="three column" id="col_1">
+        </div>
+        <div class="three column" id="col_2">
+        </div>
+    </div>
+    
+    <div id="modal">
+
+    </div>
+    <div id="modalBG"></div>
+</body>
+</html>
+
+<script id="widgetTemplate" type="text/html">
+<div class="widget" id="${id}">
+    <div class="header">
+        {{if options}}
+            <img class="options" src="images/options.png" alt="Options" onclick="openModal(this)" extId="${id}" extName="${name}" extOptions="${options}" />
+        {{/if}}
+        <div class="title">${name}</div>
+    </div>
+    <div class="body">
+        <iframe src="chrome-extension://${id}/widget.html" style="height:${height}px;"></iframe>
+    </div>
+</div>
+</script>
+
+<script id="modalTemplate" type="text/html">
+<div id="header">
+    <img src="images/cross.png" id="closeModal" alt="Close" />
+    <div id="title">${title} - Widget Options</div>
+</div>
+<div id="content">
+    <iframe src="chrome-extension://${id}/${options}"></iframe>
+</div>
+</script>

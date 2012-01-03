@@ -1,0 +1,7 @@
+<style type="text/css">
+    #notes_notes {
+        min-height:100px;
+        
+    }
+</style>
+<div id="notes_notes" contenteditable="true"></div>

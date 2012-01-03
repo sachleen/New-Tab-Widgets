@@ -1,0 +1,83 @@
+<script type="text/javascript" src="jquery.min.js"></script>
+<script>
+$(function () {
+    $('#weather_locations').val(get("locations", "95823"));
+    $('#weather_units').val(get("units", "f"));
+});
+
+function saveSettings() {
+    set('locations', $('#weather_locations').val());
+    set('units', $('#weather_units').val());
+    alert('Settings saved!');
+}
+
+/**
+ * Sets an option in localStorage
+ * Modified version from main.js as setting options for specific widgets is not necessary
+ *
+ * @param option option to set
+ * @param value  value of option
+ */
+function set(option, value)
+{
+    localStorage[option] = value;
+}
+
+/**
+ * Gets an option from localStorage
+ * Modified version from main.js as getting options from specific widgets is not necessary
+ *
+ * @param option        option to set
+ * @param defaultValue  default value of option if it does not already exist.
+ * @return              value of option from localStorage if it exists, defaultValue otherwise
+ */
+function get(option, defaultValue)
+{
+    if(localStorage[option] == undefined || !localStorage[option].length)
+    {
+        localStorage[option] = defaultValue;
+        return defaultValue;
+    }
+    return localStorage[option];
+}
+</script>
+<style>
+body {
+    margin: 0;
+    font-family: arial, sans-serif;
+    font-size: 14px;
+}
+label {
+    display: block;
+}
+input, select, textarea { 
+    width: 500px;
+    line-height: 25px;
+    margin-bottom: 10px;
+    padding: 4px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+
+}
+select {
+    padding: 6px;
+    width: 500px;
+}
+button {
+    line-height: 30px;
+    padding: 0 20px;
+}
+
+span.help {
+    font-size: 10px;
+    color:#999;
+}
+</style>
+<label for="feeds">Location <span class="help">Separate multiple locations with a comma</span></label>
+<input type="text" name="weather_locations" id="weather_locations" />
+<label for="feeds">Units</label>
+<select id="weather_units">
+    <option value="f">Fahrenheit (&deg;F)</option>
+    <option value="c">Celsius (&deg;C)</option>
+</select>
+<button onclick="saveSettings();">Save</button>

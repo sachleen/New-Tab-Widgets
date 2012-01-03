@@ -1,0 +1,59 @@
+body {
+	background-color: #E0E2E4;
+    color: #333;
+}
+#wrapper {
+    width: 780px;
+    margin: 30px auto;
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 #999;
+    background-color: #F5F5F5;
+}
+
+ul.widgetContainer {
+    margin-bottom: 10px;
+}
+
+ul.widgetContainer li {
+    border: 1px solid #CCC;
+    display: inline-block;
+    padding: 10px 5px;
+    vertical-align: top;
+    height: 95px;
+    overflow: hidden;
+    margin: 0 -1px -1px 0;
+    width: 249px;
+    line-height: 18px;
+    position: relative;
+    background-color:#FFF;
+}
+
+ul.widgetContainer li .icon {
+    float: left;
+}
+ul.widgetContainer li .icon img {
+    width: 64px;
+    height: 64px;
+    border-radius: 5px;
+}
+ul.widgetContainer li .icon button {
+    width: 64px;
+}
+
+ul.widgetContainer li div.widgetInfo {
+    float: left;
+    width: 180px;
+    margin-left: 5px;
+}
+
+#wallpapers img {
+    margin: 0 11px 22px;
+    border-radius: 5px;
+    -webkit-transition: all 200ms linear;
+}
+#wallpapers img:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px 1px #000;
+}

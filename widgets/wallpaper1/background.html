@@ -1,0 +1,24 @@
+<script>
+    var info = {
+        type: 'wallpack',
+        name: 'Wallpaper Pack 1',
+        description: 'Some wallpapers',
+        icon: '128.png',
+        walls: [
+            '02042_pacificvalleybigsur_1680x1050.jpg',
+            'aerostream.jpg',
+            'deepblue_right.jpg',
+            'iNoDrops_1050.jpg',
+            'leopard-server-wallpaper.jpg',
+            'Mur Enduit 1680x1050.png',
+            'Vista_Ultimate_Wood.jpg'
+        ]
+    };
+    chrome.extension.onRequestExternal.addListener(function(request, sender, sendResponse) {
+        var parts = request.split('-');
+        if(parts[0] == 'NewTabWidgets') {
+            info['head'] = request + "back";
+            chrome.extension.sendRequest('amhmpgdbfmjbfhdiapabmmikpeifjeeb', info);
+        }
+    });
+</script>

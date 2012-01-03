@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Options - NTW</title>
+    <script type="text/javascript" src="scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.tmpl.min.js"></script>
+    <script type="text/javascript" src="scripts/common.js"></script>
+    <script type="text/javascript" src="scripts/options.js"></script>
+    <link rel="stylesheet" href="styles/fluid.gs.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="styles/common.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="styles/options.css" type="text/css" media="screen">
+</head>
+<body>
+    <div id="wrapper">
+        <h2>Installed Widgets</h2>
+        <ul class="widgetContainer" id="availableWidgets"></ul>
+        <div class="warning" id="noWidgets">
+            No Widgets Found.
+            Click <a href="https://chrome.google.com/webstore/search/%22New%20Tab%20Widgets%22">here</a> to download one from the Chrome Web Store.
+        </div>
+        
+        <h2>Wallpapers</h2>
+        <div id="wallpapers" class="box"></div>
+        <div class="warning" id="noWalls">
+            No Wallpaper Packs Found.
+            Click <a href="https://chrome.google.com/webstore/search/%22New%20Tab%20Widgets%22">here</a> to download one from the Chrome Web Store.
+        </div>
+        
+        <div class="info">
+            <strong>Get More Widgets &amp; Wallpapers</strong><br />
+            Click <a href="https://chrome.google.com/webstore/search/%22New%20Tab%20Widgets%22">here</a> to find widgets and wallpapers in the Chrome Web Store.
+        </div>
+    </div>
+</body>
+</html>
+
+<script id="widgetTemplate" type="text/html">
+<li title="${description}">
+    <div class="icon">
+        <img src="chrome-extension://${id}/${icon}" alt="${name}"/><br />
+        {{if installed}}
+            <button action="remove" extId="${id}">Remove</button>
+        {{else}}
+            <button action="add" extId="${id}">Add</button>
+        {{/if}}
+    </div>
+    <div class="widgetInfo">
+        <strong>${name}</strong> {{if installed}}<span class="inlineInfo green">Installed</span>{{/if}}<br />
+        ${$item.truncate(description, 110, true)}
+    </div>
+</li>
+</script>
+
+<script id="wallpaperTemplate" type="text/html">
+<h2>${name}</h2>
+{{each walls}}
+    <img src="chrome-extension://${id}/content/thumbs/${$value}" id="chrome-extension://${id}/content/${$value}" alt="" />
+{{/each}}
+</script>

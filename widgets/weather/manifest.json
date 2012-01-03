@@ -1,0 +1,9 @@
+{
+  "name": "Weather [NTW]",
+  "version": "1.0",
+  "icons": {
+    "128": "icon.png"
+  },
+  "background_page": "background.html",
+  "options_page": "options.html"
+}

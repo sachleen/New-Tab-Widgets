@@ -1,0 +1,81 @@
+h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.box {
+    border: 1px solid #CCC;
+    background-color: #FFF;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+span.inlineInfo {
+    padding: 2px 5px;
+    border-radius: 5px;
+    color:#FFF;
+}
+
+span.inlineInfo.green {
+    background-image: -webkit-linear-gradient(top, #62C462, #57A957);
+}
+
+/* CSS message boxes from
+ * http://www.jankoatwarpspeed.com/post/2008/05/22/CSS-Message-Boxes-for-different-message-types.aspx
+ */
+.info, .success, .warning, .error, .validation {
+  border: 1px solid;
+  margin: 10px 0px;
+  padding:10px 10px 10px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  border-radius: 5px;
+  line-height: 20px;
+}
+.info {
+  color: #00529B;
+  background-color: #BDE5F8;
+  background-image: url('../images/info.png');
+}
+.success {
+  color: #4F8A10;
+  background-color: #DFF2BF;
+  background-image:url('../images/success.png');
+}
+.warning {
+  color: #9F6000;
+  background-color: #FEEFB3;
+  background-image: url('../images/warning.png');
+}
+.error {
+  color: #D8000C;
+  background-color: #FFBABA;
+  background-image: url('../images/error.png');
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color:#E5E5E5;
+    -webkit-border-radius: 10px;
+}
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment  {
+    height: 0px;
+    width: 0;
+}
+::-webkit-scrollbar-track-piece  {
+    background-color: #E5E5E5;
+    -webkit-border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:vertical, ::-webkit-scrollbar-thumb:horizontal {
+    background-color: #E9E9E9;
+    border: 1px solid #A6A6A6;
+    -webkit-border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:vertical:hover, ::-webkit-scrollbar-thumb:horizontal:hover {
+    background-color: #DDD;
+    border: 1px solid #A6A6A6;
+    -webkit-border-radius: 10px;
+}
