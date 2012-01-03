@@ -3,11 +3,13 @@
 $(function () {
     $('#title').val(get("title", "Custom Site 1"));
     $('#url').val(get("url", "about:blank"));
+    $('#height').val(get("height", "2"));
 });
 
 function saveSettings() {
     set('title', $('#title').val());
     set('url', $('#url').val());
+    set('height', $('#height').val());
     alert('Settings saved!');
 }
 
@@ -75,6 +77,16 @@ span.help {
 </style>
 <label for="title">Title:</label>
 <input type="text" name="title" id="title" />
+
 <label for="url">URL:</label>
 <input type="text" name="url" id="url" />
+
+<label for="height">Widget Height</label>
+<select id="height">
+    <option value="1">1 Block</option>
+    <option value="2">2 Blocks</option>
+    <option value="3">3 Blocks</option>
+</select>
+
+
 <button onclick="saveSettings();">Save</button>

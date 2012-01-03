@@ -17,3 +17,11 @@ function setTitle(title) {
     }
     chrome.extension.sendRequest(NTWID, data);
 }
+
+function setHeight(height) {
+    var data = {
+        head: 'NewTabWidgets-setHeight',
+        content: height
+    }
+    chrome.extension.sendRequest(NTWID, data);
+}

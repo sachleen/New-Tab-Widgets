@@ -20,9 +20,9 @@ $(function () {
         for(var w in widgetsCol) {
             for(i in widgets) {
                 if(widgets[i].id == widgetsCol[w]) {
-                    var h = widgets[i].height;
-                    h = h * 100 + (37*(h-1));
-                    widgets[i].height = h;
+                    //var h = widgets[i].height;
+                    //h = h * 100 + (37*(h-1));
+                    widgets[i].height = calculateHeight(widgets[i].height);
                     $("#widgetTemplate").tmpl(widgets[i], templateFunctions).appendTo("#col_" + col);
                     break;
                 }
@@ -65,15 +65,22 @@ $(function () {
     $("body").css("background", "url('" + localStorage['wallpaper'] + "') top center");
     
     /* 
-     * Handle widgets wanting to change title
+     * Handle widgets wanting to change things dynamically
      */
     chrome.extension.onRequestExternal.addListener(function(request, sender, sendResponse) {
-        if(request.head && request.head == 'NewTabWidgets-setTitle') {
-            $('#' + sender.id + ' .title').html(request.content);
+        if(request.head) {
+            if(request.head == 'NewTabWidgets-setTitle') {
+                $('#' + sender.id + ' .title').html(request.content);
+            } else if(request.head == 'NewTabWidgets-setHeight') {
+                $('#' + sender.id + ' iframe').attr('style', 'height:' + calculateHeight(request.content) + 'px');
+            }
         }
     });
 });
 
+function calculateHeight(height) {
+    return height * 100 + (37*(height-1));
+}
 
 /**
  * Opens a modal window
@@ -84,7 +91,6 @@ $(function () {
  *                            extOptions (string) The name of the options file to load.
  */
 function openModal(widget) {
-    console.log(widget);
     var data = {
         title: $(widget).attr('extName'),
         id: $(widget).attr('extId'),

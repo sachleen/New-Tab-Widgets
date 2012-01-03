@@ -16,7 +16,6 @@ $(function () {
                 html += '<div class="location">'+weather.city + ', ' + weather.region+' [<a href="http://www.weather.com/weather/5-day/'+weather.city + "+" + weather.region + "+" + zip+'" id="more">More</a>]</div>';
                 html += '<div class="currentTemp">'+weather.temp + '&deg;' + weather.units.temp+'</div>';
                 html += '<div class="today">'+weather.high + '&deg;' + weather.units.temp + ' / ' + weather.low + '&deg;' + weather.units.temp+'</div>';
-                console.log(weather);
                 html += '<div class="tomorrow">'+weather.tomorrow.day+ ': '+weather.tomorrow.forecast + ", " + weather.tomorrow.high + '&deg;' + weather.units.temp + ' / ' + weather.tomorrow.low + '&deg;' + weather.units.temp+'</div>';
                 html += '</div></div></div>';
                 $("#weather .content").append(html);
