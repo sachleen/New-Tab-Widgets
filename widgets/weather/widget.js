@@ -1,5 +1,10 @@
 $(function () {
     order = get('locations', '95823').split(',')
+    
+    var height = order.length;
+    if(height > 3) height = 3;
+    setHeight(height);
+    
     $.each(order, function(index, value) {
         order[order.indexOf(value)] = $.trim(value);
         set('locations', order);

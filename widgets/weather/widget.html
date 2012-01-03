@@ -2,6 +2,7 @@
 <head>
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery.simpleWeather-1.9.min.js"></script>
+    <script type="text/javascript" src="NTW.js"></script>
     <script type="text/javascript" src="widget.js"></script>
     <style type="text/css">
     body {
@@ -11,9 +12,13 @@
     }
     a { text-decoration: none; }
     .weatherBox {
-        margin-top: 4px;
-        margin-bottom: 4px;
-        background-size:200px;
+        display: block;
+        height: 100px;
+        margin-top: 5px;
+        margin-bottom: 22px;
+    }
+    .weatherBox:last-child {
+        margin-bottom:0;
     }
     .weatherData {
         padding-left: 150px;
@@ -34,3 +39,9 @@
     </div>
 </body>
 </html>
+
+<!--
+ 100
+ 237
+ 374
+-->
