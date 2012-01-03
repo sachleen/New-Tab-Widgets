@@ -1,10 +1,12 @@
 <script type="text/javascript" src="jquery.min.js"></script>
 <script>
 $(function () {
+    $('#title').val(get("title", "Custom Site 1"));
     $('#url').val(get("url", "about:blank"));
 });
 
 function saveSettings() {
+    set('title', $('#title').val());
     set('url', $('#url').val());
     alert('Settings saved!');
 }
@@ -71,6 +73,8 @@ span.help {
     color:#999;
 }
 </style>
+<label for="title">Title:</label>
+<input type="text" name="title" id="title" />
 <label for="url">URL:</label>
 <input type="text" name="url" id="url" />
 <button onclick="saveSettings();">Save</button>

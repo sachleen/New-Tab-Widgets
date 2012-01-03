@@ -9,3 +9,11 @@ function registerWidget(info) {
         }
     });
 }
+
+function setTitle(title) {
+    var data = {
+        head: 'NewTabWidgets-setTitle',
+        content: title
+    }
+    chrome.extension.sendRequest(NTWID, data);
+}

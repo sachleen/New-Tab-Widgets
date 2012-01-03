@@ -62,7 +62,16 @@ $(function () {
     /*
      * Sets some CSS rules based on user's preferences
      */
-     $("body").css("background", "url('" + localStorage['wallpaper'] + "') top center");
+    $("body").css("background", "url('" + localStorage['wallpaper'] + "') top center");
+    
+    /* 
+     * Handle widgets wanting to change title
+     */
+    chrome.extension.onRequestExternal.addListener(function(request, sender, sendResponse) {
+        if(request.head && request.head == 'NewTabWidgets-setTitle') {
+            $('#' + sender.id + ' .title').html(request.content);
+        }
+    });
 });
 
 

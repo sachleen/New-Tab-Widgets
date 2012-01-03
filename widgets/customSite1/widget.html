@@ -1,4 +1,5 @@
 <script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="NTW.js"></script>
 <style type="text/css">
     body {
         margin: 0 5px;
@@ -13,6 +14,7 @@
 
 
 <script type="text/javascript">
+setTitle(get("title", "Custom Site 1"));
 $('#frame').attr('src', get("url", "about:blank"));
 /**
  * Gets an option from localStorage
