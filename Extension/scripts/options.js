@@ -2,7 +2,7 @@
 * Stuff to be done at launch
 */
 $(function () {
-    var installedWidgets = JSON.parse(localStorage['installedWidgets']);
+    var installedWidgets = JSON.parse(get('installedWidgets', '[[],[],[]]'));
     
     chrome.management.getAll(function(list) {
         for (var i in list)
@@ -51,7 +51,6 @@ chrome.extension.onRequestExternal.addListener(function(request, sender, sendRes
         if(request.type == 'widget') {
             $('#noWidgets').hide();
             
-            console.log(sender.id);
             if(isInstalled(sender.id))
                 request['installed'] = 'true';
             

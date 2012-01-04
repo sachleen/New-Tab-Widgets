@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    margin-top: -15px;
+}
+
+#widgetContainer .widget {
+    border: 1px solid #CCC;
+    border-top: 0;
+    padding: 10px 10px 6px;
+    vertical-align: top;
+    overflow: hidden;
+    line-height: 18px;
+    background-color:#FFF;
+    cursor: pointer;
+}
+
+#widgetContainer .widget:first-child {
+    border-radius: 5px 5px 0 0;
+    border-top: 1px solid #CCC;
+}
+
+#widgetContainer .widget:last-child {
+    border-radius: 0 0 5px 5px;
+}
+
+#widgetContainer .widget:hover {
+    background-color: #F3F3F3;
+}
+
+#widgetContainer .icon {
+    float: left;
+}
+#widgetContainer .icon img {
+    width: 64px;
+    height: 64px;
+    border-radius: 5px;
+}
+
+#widgetContainer .widgetInfo {
+    float: left;
+    margin-left: 10px;
+}
+
+#dontShowWelcome {
+    padding-top: 2px;
+    text-align: right;
+    cursor: pointer;
+}
+#dontShowWelcome:hover {
+    text-decoration: underline;
+}

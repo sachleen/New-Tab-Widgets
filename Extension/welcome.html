@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome - NTW</title>
+    <script type="text/javascript" src="scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.tmpl.min.js"></script>
+    <script type="text/javascript" src="scripts/welcome.js"></script>
+    <link rel="stylesheet" href="styles/common.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="styles/welcome.css" type="text/css" media="screen">
+</head>
+<body>
+    <h2 class="center">
+        Thanks for installing New Tab Widgets!
+    </h2>
+    
+    <div class="info">
+        <strong>There are no widgets on your new tab page.</strong> Check out a few of the widgets below. You can also download more from the <a target="_blank" href="https://chrome.google.com/webstore/search/%22New%20Tab%20Widgets%22">Chrome Web Store</a>.<br />
+        Once you have installed a few widgets, head over to the <a href="options.html">options</a> page to add them to your new tab page!
+    </div>
+    
+    <div id="widgetContainer"></div>
+    <div id="dontShowWelcome">Don't show this page again</div>
+</body>
+</html>
+
+<script id="widgetTemplate" type="text/html">
+<div class="widget" id="${url}">
+    <div class="icon">
+        <img src="${icon}" alt="${name}"/>
+    </div>
+    <div class="widgetInfo">
+        <strong>${name}</strong><br />
+        ${description}
+    </div>
+</div>
+</script>

@@ -9,22 +9,37 @@ $(function () {
      */
     key = new Date().getTime();
     
-    var installedWidgets = JSON.parse(localStorage['installedWidgets']);
-    var widgets = JSON.parse(localStorage['widgets']);
+    var installedWidgets = JSON.parse(get('installedWidgets', '[[],[],[]]'));
+    var widgets = JSON.parse(get('widgets', '[]'));
+    
+    // Hide the options modal
+    $("#modal").hide();
+    $("#modalBG").hide();
+    $("#closeModal").live('click', function() {
+        closeModal();
+    });
     
     /*
      * Populate the new tab page with the installed widgets
      */
-    for(var col in installedWidgets) {
-        var widgetsCol = installedWidgets[col];
-        for(var w in widgetsCol) {
-            for(i in widgets) {
-                if(widgets[i].id == widgetsCol[w]) {
-                    //var h = widgets[i].height;
-                    //h = h * 100 + (37*(h-1));
-                    widgets[i].height = calculateHeight(widgets[i].height);
-                    $("#widgetTemplate").tmpl(widgets[i], templateFunctions).appendTo("#col_" + col);
-                    break;
+    if(installedWidgets.toString() == ',,') {
+        var x = {
+            extName: 'Welcome to New Tab Widgets',
+            extId: NTWID,
+            extOptions: 'welcome.html'
+        }
+        if(get('showWelcome', 'true') == 'true')
+            openModal(x);
+    } else {
+        for(var col in installedWidgets) {
+            var widgetsCol = installedWidgets[col];
+            for(var w in widgetsCol) {
+                for(i in widgets) {
+                    if(widgets[i].id == widgetsCol[w]) {
+                        widgets[i].height = calculateHeight(widgets[i].height);
+                        $("#widgetTemplate").tmpl(widgets[i], templateFunctions).appendTo("#col_" + col);
+                        break;
+                    }
                 }
             }
         }
@@ -52,17 +67,10 @@ $(function () {
         } 
     });
     
-    // Modal window stuff
-    $("#modal").hide();
-    $("#modalBG").hide();
-    $("#closeModal").live('click', function() {
-        closeModal();
-    });
-    
     /*
      * Sets some CSS rules based on user's preferences
      */
-    $("body").css("background", "url('" + localStorage['wallpaper'] + "') top center");
+    $("body").css("background", "url('" + get('wallpaper', 'images/wallpaper.jpg') + "') top center");
     
     /* 
      * Handle widgets wanting to change things dynamically
@@ -85,10 +93,10 @@ function calculateHeight(height) {
 /**
  * Opens a modal window
  *
- * @param HTML element widget This element must have the following attributes:
- *                            extName (string) The neame of the widget
- *                            extId (string) The ID of the extension
- *                            extOptions (string) The name of the options file to load.
+ * @param object widget Accepts an object with the following attributes:
+ *                      extName (string) The neame of the widget
+ *                      extId (string) The ID of the extension
+ *                      extOptions (string) The name of the options file to load.
  */
 function openModal(widget) {
     var data = {

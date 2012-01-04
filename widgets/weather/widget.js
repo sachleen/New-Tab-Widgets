@@ -16,7 +16,7 @@ $(function () {
             zipcode: zip,
             unit: units,
             success: function(weather) {
-                html  = '<div class="weatherBox" id="' + zip + '" style="background:url(\'' + weather.image + '\') 0 -5px no-repeat">';
+                html  = '<div class="weatherBox" id="' + zip + '" style="background:url(\'' + weather.image + '\') 0 -15px no-repeat">';
                 html += '<div class="weatherData">';
                 html += '<div class="location">'+weather.city + ', ' + weather.region+' [<a href="http://www.weather.com/weather/5-day/'+weather.city + "+" + weather.region + "+" + zip+'" id="more">More</a>]</div>';
                 html += '<div class="currentTemp">'+weather.temp + '&deg;' + weather.units.temp+'</div>';
