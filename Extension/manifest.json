@@ -1,6 +1,6 @@
 {
   "name": "New Tab Widgets",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "chrome_url_overrides": {
     "newtab": "tab.html"
   },

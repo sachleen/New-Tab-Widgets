@@ -70,7 +70,7 @@ $(function () {
     /*
      * Sets some CSS rules based on user's preferences
      */
-    $("body").css("background", "url('" + get('wallpaper', 'images/wallpaper.jpg') + "') top center");
+    $("body").css("background", "url('" + get('wallpaper', 'images/wallpaper.jpg') + "') " + get('wallpaperPosition', 'top center'));
     
     /* 
      * Handle widgets wanting to change things dynamically

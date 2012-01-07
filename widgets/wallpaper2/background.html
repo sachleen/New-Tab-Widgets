@@ -1,0 +1,30 @@
+<script>
+    var info = {
+        type: 'wallpack',
+        name: 'Wallpaper Pack 2',
+        description: 'A second set of wallpapers',
+        icon: '128.png',
+        walls: [
+            'do-your-work.jpg',
+            'BSOD.jpg',
+            'city.jpg',
+            'city2.jpg',
+            'city3.jpg',
+            'Gears1920.jpg',
+            'Hexagons.png',
+            'Legend of Zelda.jpg',
+            'Lights.jpg',
+            'physics.jpg',
+            'wallpaper1112640.jpg',
+            'Tizl1.jpg',
+            'wall.jpg',
+        ]
+    };
+    chrome.extension.onRequestExternal.addListener(function(request, sender, sendResponse) {
+        var parts = request.split('-');
+        if(parts[0] == 'NewTabWidgets') {
+            info['head'] = request + "back";
+            chrome.extension.sendRequest('kglfkhnhcnemodbfakimgonfkbpmlpfd', info);
+        }
+    });
+</script>
