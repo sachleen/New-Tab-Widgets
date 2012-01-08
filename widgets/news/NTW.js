@@ -1,3 +1,5 @@
+var NTWID = 'kglfkhnhcnemodbfakimgonfkbpmlpfd';
+
 function registerWidget(info) {
     chrome.extension.onRequestExternal.addListener(function(request, sender, sendResponse) {
         var parts = request.split('-');
